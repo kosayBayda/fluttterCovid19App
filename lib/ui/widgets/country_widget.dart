@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:covid19/core/models/country.dart';
 import 'package:flutter/material.dart';
 class CountryWidget extends StatelessWidget {
@@ -17,7 +18,16 @@ class CountryWidget extends StatelessWidget {
         [
           Text(country.name,style: TextStyle(fontWeight: FontWeight.bold),),
           SizedBox(height: 1,),
-          Expanded(child: Image.network(country.imageUrl),),
+          Expanded
+          (
+            child: CachedNetworkImage
+            (
+              imageUrl: country.imageUrl,
+              progressIndicatorBuilder: (context, url, downloadProgress) => 
+              Center(child:CircularProgressIndicator(value: downloadProgress.progress,strokeWidth:1,)),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+            ),
+          ),
           OneRow(title:"Total cases: ",text:Text(country.cases.toString())),
           OneRow(title:"Total deaths: ",text:Text(country.deaths.toString(),style: TextStyle(color: Colors.red[900]),),),
           OneRow(title:"Today cases: " ,text:Text(country.todayCases.toString()),),

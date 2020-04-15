@@ -1,10 +1,8 @@
-import 'package:covid19/locator.dart';
 import 'package:covid19/ui/views/countries_view.dart';
 import 'package:covid19/ui/views/home_view.dart';
 import 'package:flutter/material.dart';
 void main()
 {
-  setupLocator();
   runApp(MyApp());
   // Api.getCovid19();
   // Api.getCountries();
