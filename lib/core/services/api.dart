@@ -4,7 +4,7 @@ import 'package:covid19/core/models/covid.dart';
 import 'package:dio/dio.dart';
 class Api
 {
-  static BaseOptions options=new BaseOptions(baseUrl:"https://corona.lmao.ninja");
+  static BaseOptions options=new BaseOptions(baseUrl:"https://corona.lmao.ninja/v2");
   static Dio dio = new Dio(options);
   static Future<Covid19> getCovid19() async
   {
